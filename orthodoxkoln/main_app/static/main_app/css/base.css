@@ -1,0 +1,176 @@
+* {
+    padding: 0;
+    margin: 0;
+    border: 0;
+  }
+  *,
+  *:before,
+  *::after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  :focus,
+  :active {
+    outline: none;
+  }
+  a:focus,
+  a:active {
+    outline: none;
+  }
+  
+  nav,
+  footer,
+  header,
+  aside {
+    display: block;
+  }
+  
+  html,
+  body {
+    height: 100%;
+    width: 100%;
+    font-size: 100%;
+    line-height: 1;
+    font-size: 14px;
+    font: inherit;
+    -ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+  }
+  input,
+  button,
+  textarea {
+    font-family: inherit;
+  }
+  
+  input::-ms-clear {
+    display: none;
+  }
+  button {
+    cursor: pointer;
+  }
+  button::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+  }
+  a,
+  a:visited {
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: none;
+  }
+  ul,
+  li {
+    list-style: none;
+  }
+  img {
+    vertical-align: top;
+  }
+  
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-size: inherit;
+    font-weight: 400;
+  }
+  
+  nav,
+  footer,
+  header,
+  aside {
+    display: block;
+  }
+  
+  body {
+    display: flex;
+    justify-content: center;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .body-conteiner {
+    width: 1200px;
+  }
+  
+  header {
+    margin: 20px 0;
+    padding: 0 15px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+  
+  .logo {
+    margin-bottom: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .logo p {
+    margin: 4px 0;
+    font-family: 'Lora', serif;
+    color: #11abff;
+    text-shadow: 0 0 0.7px #11abff;
+    text-align: center;
+  }
+  
+  .logo__organization-name {
+    font-size: 22px;
+    font-weight: 400;
+    letter-spacing: 1px;
+  }
+  
+  .logo__site-name {
+    font-size: 28px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  
+  .logo__by-blessing {
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    width: 50%;
+  }
+  
+  .menu__wrap {
+    position: relative;
+    width: 1150px;
+  }
+  
+  .menu {
+    display: flex;
+    justify-content: center;
+    background-color: #11abff;
+    border-radius: 5px;
+  }
+  
+  .menu__item {
+    margin: 10px 20px;
+    padding: 10px 17px;
+    background-color: #d9e7fb;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+  
+  .menu__item:active {
+    transition: 0.1s;
+    opacity: 0.8;
+  }
+  
+  .menu__item a span {
+    color: #1a1a1a;
+  }
+  
+  footer {
+    height: 150px;
+    width: 100%;
+    border-top: #11abff solid 3px;
+  }
+  
