@@ -1,0 +1,44 @@
+main {
+    margin: 50px;
+}
+
+.contacts{
+    width: 770px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 600px;
+}
+
+.contacts__address,
+.contacts__phone,
+.contacts__email{
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.contacts__title {
+    height: 50px;
+    padding: 10px 15px;
+    color: #fff;
+    text-align: center;
+    background-color: #11abff;
+    border-radius: 5px;
+    font-family: 'Ariel', sans-serif;
+    font-size: 24px;
+}
+
+.contacts__list{
+    padding: 10px 0;
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: #d9e7fb;
+}
+
+.contacts__item{
+    text-align: center;
+}
