@@ -91,6 +91,8 @@
     flex-direction: column;
     justify-content: space-between;
     font-family: 'Arial', sans-serif;
+    background-image: url('../images/background-site.png');
+    background-repeat: repeat;
   }
   
   
