@@ -3,9 +3,9 @@
 {%block file_css%}
     <link rel="stylesheet" type="text/css" href="{% static 'main_app/css/main.css' %}" />
 {%endblock file_css%}
-{%block main%}
-    <main>
-    <div class="main-conteiner">
+
+
+{%block main_content%}
         <div class="news">
         <h2 class="news__title">Останні новини Уманської Єпархії</h2>
         <ul class="news__tape">
@@ -122,20 +122,18 @@
             Сторінка 1 із 392
         </div>
         </div>
+        {%endblock main_content%}
 
-        <div class="side-panel">
-        <div class="bishop">
-            <h2 class="bishop__title">Архієрей</h2>
-            <div class="bishop__conteiner">
-            <a href="https://www.google.com/">
+        {%block sidebar_main%}
+        <div class="sidebar-module">
+            <h2 class="sidebar-module__title">Архієрей</h2>
+            <div class="sidebar-module__content">
+              <a href="https://www.google.com/">
                 <img
-                src="../img/arhierej.jpg"
+                src="{% static 'main_app/images/arhierej.jpg' %}"
                 alt="Високопреосвященніший Пантелеімон"
                 />
-            </a>
+              </a>
             </div>
-        </div>
-        </div>
-    </div>
-    </main>
-{%endblock main%}
+          </div>
+        {%endblock sidebar_main%}

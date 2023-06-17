@@ -44,8 +44,102 @@
     </header>
     {% endblock header %} 
     
-    {%block main%} 
-    {%endblock main%} 
+    <main>
+      <div class="main-conteiner">
+    {%block main_content%} 
+    <div class="empty-block"></div>
+    {%endblock main_content%}
+
+    {%block sidebar%}
+    <div class="side-panel">
+
+    {%block sidebar_main%}
+    {%endblock sidebar_main%}
+
+      {%block sidebar_base%}
+    <div class="sidebar-module">
+
+        <div class="sidebar-module__title"><span>Календар</span></div>
+
+        <div class="sidebar-module__content">
+            <div class="calendar-block">
+                <table class="calendar">
+                    <tbody>
+                        <tr>
+                            <td class="calendar__nav-month_prev">
+                                <a class="calendar__nav-link">«</a>
+                            </td>
+                            <td class="calendar__current-month" colspan="5">Червень 2023</td>
+                            <td class="calendar__button-month_next">
+                                <a class="calendar__nav-link">»</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="calendar__day-name">Пн</td>
+                            <td class="calendar__day-name">Вт</td>
+                            <td class="calendar__day-name">Ср</td>
+                            <td class="calendar__day-name">Чт</td>
+                            <td class="calendar__day-name">Пт</td>
+                            <td class="calendar__day-name">Сб</td>
+                            <td class="calendar__day-name">Нд</td>
+                        </tr>
+                        <tr>
+                            <td class="calendar__day-number_empty">&nbsp;</td>
+                            <td class="calendar__day-number_empty">&nbsp;</td>
+                            <td class="calendar__day-number_empty">&nbsp;</td>
+                            <td class="calendar__day-number"><a href="#">1</a></td>
+                            <td class="calendar__day-number"><a href="#">2</a></td>
+                            <td class="calendar__day-number"><a href="#">3</a></td>
+                            <td class="calendar__day-number"><a href="#">4</a></td>
+                        </tr>
+                        <tr>
+                            <td class="calendar__day-number"><a href="#">5</a></td>
+                            <td class="calendar__day-number"><a href="#">6</a></td>
+                            <td class="calendar__day-number"><a href="#">7</a></td>
+                            <td class="calendar__day-number"><a href="#">8</a></td>
+                            <td class="calendar__day-number"><a href="#">9</a></td>
+                            <td class="calendar__day-number"><a href="#">10</a></td>
+                            <td class="calendar__day-number"><a href="#">11</a></td>
+                        </tr>
+                        <tr>
+                            <td class="calendar__day-number"><a href="#">12</a></td>
+                            <td class="calendar__day-number"><a href="#">13</a></td>
+                            <td class="calendar__day-number"><a href="#">14</a></td>
+                            <td class="calendar__day-number"><a href="#">15</a></td>
+                            <td class="calendar__day-number"><a href="#">16</a></td>
+                            <td class="calendar__day-number"><a href="#">17</a></td>
+                            <td class="calendar__day-number"><a href="#">18</a></td>
+                        </tr>
+                        <tr>
+                            <td class="calendar__day-number"><a href="#">19</a></td>
+                            <td class="calendar__day-number"><a href="#">20</a></td>
+                            <td class="calendar__day-number"><a href="#">21</a></td>
+                            <td class="calendar__day-number"><a href="#">22</a></td>
+                            <td class="calendar__day-number"><a href="#">23</a></td>
+                            <td class="calendar__day-number"><a href="#">24</a></td>
+                            <td class="calendar__day-number"><a href="#">25</a></td>
+                        </tr>
+                        <tr>
+                            <td class="calendar__day-number"><a href="#">26</a></td>
+                            <td class="calendar__day-number"><a href="#">27</a></td>
+                            <td class="calendar__day-number"><a href="#">28</a></td>
+                            <td class="calendar__day-number"><a href="#">29</a></td>
+                            <td class="calendar__day-number"><a href="#">30</a></td>
+                            <td class="calendar__day-number_empty">&nbsp;</td>
+                            <td class="calendar__day-number_empty">&nbsp;</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    {%endblock sidebar_base%}
+    </div>
+    {%endblock sidebar%}
+      </div>
+    </main>
+    
+    
     
     {% block footer %}
     <footer>

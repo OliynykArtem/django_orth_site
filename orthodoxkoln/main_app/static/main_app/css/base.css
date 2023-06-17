@@ -168,7 +168,75 @@
   .menu__item a span {
     color: #1a1a1a;
   }
+
+
+
+  main {
+    margin: 50px;
+    display: flex;
+  }
+
+  .main-conteiner {
+    justify-content: space-between;
+    width: 100%;
+    display: flex;
+  }
+
+
+  .empty-block{
+    width: 770px;
+  }
+
+  .side-panel {
+    width: 360px;
+  }
+
+  .sidebar-module{
+    width: 360px;
+  }  
+
+  .sidebar-module__title{
+      height: 50px;
+      padding: 10px 15px;
+      color: #fff;
+      text-align: center;
+      background-color: #11abff;
+      border-radius: 5px;
+      font-family: 'Ariel', sans-serif;
+      font-size: 24px;
+    }
   
+    .sidebar-module__content{
+    padding: 10px 15px;
+    background-color: #d9e7fb;
+    }
+  
+    .calendar {
+    width: 100%;
+      border-collapse: separate;
+      border-spacing: 3px;
+  }
+  
+  .calendar td{
+    text-align: center;
+  }
+  
+  .calendar__day-number{
+    padding: 7px 0;
+    background-color: #fff;
+  }
+  
+  .calendar__day-number a{
+    color: #1a1a1a;
+  }
+  
+  .calendar__day-number_empty{
+    background-color: #d9e7fb;
+  }
+
+
+
+
   footer {
     padding: 0 80px;
     display: flex;
@@ -205,4 +273,3 @@
     color: #F5F4EE;
     font-size: 22px;
   }
-  

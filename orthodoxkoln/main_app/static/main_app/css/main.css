@@ -1,24 +1,20 @@
-  main {
-    margin: 50px;
-    display: flex;
-  }
-  
-  .main-conteiner {
-    justify-content: space-between;
-    width: 100%;
-    display: flex;
-  }
-  
-  .news {
+main {
+  margin: 50px;
+  display: flex;
+}
+
+.main-conteiner {
+  justify-content: space-between;
+  width: 100%;
+  display: flex;
+}
+
+.news {
     width: 770px;
   }
   
-  .side-panel {
-    width: 360px;
-  }
-  
   .news__title,
-  .bishop__title {
+  .sidebar-module__title {
     height: 50px;
     padding: 10px 15px;
     color: #fff;
@@ -34,13 +30,16 @@
     margin-bottom: 45px;
   }
   
-  
-  .bishop__conteiner {
+  .sidebar-module{
+    margin-bottom: 45px;
+  }
+
+  .sidebar-module__content {
     padding: 12px;
     background-color: #d9e7fb;
   }
   
-  .bishop__conteiner a img {
+  .sidebar-module__content a img {
     width: 336px;
     height: auto;
   }
