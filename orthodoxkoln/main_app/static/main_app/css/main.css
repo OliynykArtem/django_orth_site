@@ -1,10 +1,11 @@
   main {
-    margin: 45px 0;
-    padding: 0 15px;
+    margin: 50px;
     display: flex;
   }
   
   .main-conteiner {
+    justify-content: space-between;
+    width: 100%;
     display: flex;
   }
   
@@ -13,7 +14,7 @@
   }
   
   .side-panel {
-    margin-left: 40px;
+    width: 360px;
   }
   
   .news__title,
@@ -33,9 +34,6 @@
     margin-bottom: 45px;
   }
   
-  .bishop__title {
-    width: 360px;
-  }
   
   .bishop__conteiner {
     padding: 12px;

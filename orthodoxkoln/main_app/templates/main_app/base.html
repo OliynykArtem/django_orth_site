@@ -8,51 +8,74 @@
     {%endblock file_css%}
   </head>
   <body>
-    <div class="body-conteiner">
-      {% block header %}
-      <header>
-        <div class="logo">
-          <p class="logo__organization-name">Українська Православна Церква</p>
-          <p class="logo__site-name">Офіційний сайт УПЦ в м.Кельн</p>
-          <p class="logo__by-blessing">
-            З благословіння Блаженнішого Онуфрія, Митрополита Київського і Всієї
-            України
-          </p>
-        </div>
+    {% block header %}
+    <header>
+      <div class="logo">
+        <p class="logo__organization-name">Українська Православна Церква</p>
+        <p class="logo__site-name">Офіційний сайт УПЦ в м.Кельн</p>
+        <p class="logo__by-blessing">
+          З благословіння Блаженнішого Онуфрія, Митрополита Київського і Всієї
+          України
+        </p>
+      </div>
 
-        <nav id="menu-wrap">
-          <ul class="menu">
-            <li class="menu__item">
-              <a href="{% url 'main' %}"><span>Головна</span></a>
-            </li>
-            <li class="menu__item">
-              <a href="{% url 'bishop' %}"><span>Архієрей</span></a>
-            </li>
-            <li class="menu__item">
-              <a href="{% url 'parishes' %}"><span>Парафії</span></a>
-            </li>
-            <li class="menu__item">
-              <a href="{% url 'clergy' %}"><span>Духовенство</span></a>
-            </li>
-            <li class="menu__item">
-              <a href="{% url 'photogallery' %}"><span>Фотогалерея</span></a>
-            </li>
-            <li class="menu__item">
-              <a href="{% url 'contacts' %}"><span>Контакти</span></a>
-            </li>
-          </ul>
-        </nav>
-      </header>
-      {% endblock header %} 
-      
-      {%block main%} 
-      {%endblock main%} 
-      
-      {% block footer %}
-      <footer>
-        <div class="footer-conteiner">footer</div>
-      </footer>
-      {% endblock footer %}
-    </div>
+      <nav id="menu-wrap">
+        <ul class="menu">
+          <li class="menu__item">
+            <a href="{% url 'main' %}"><span>Головна</span></a>
+          </li>
+          <li class="menu__item">
+            <a href="{% url 'bishop' %}"><span>Архієрей</span></a>
+          </li>
+          <li class="menu__item">
+            <a href="{% url 'parishes' %}"><span>Парафії</span></a>
+          </li>
+          <li class="menu__item">
+            <a href="{% url 'clergy' %}"><span>Духовенство</span></a>
+          </li>
+          <li class="menu__item">
+            <a href="{% url 'photogallery' %}"><span>Фотогалерея</span></a>
+          </li>
+          <li class="menu__item">
+            <a href="{% url 'contacts' %}"><span>Контакти</span></a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    {% endblock header %} 
+    
+    {%block main%} 
+    {%endblock main%} 
+    
+    {% block footer %}
+    <footer>
+      <div class="footer-title">
+        <p class="footer__organization-name">Українська Православна Церква</p>
+        <p class="footer__site-name">Офіційний сайт УПЦ в м.Кельн</p>
+      </div>
+      <nav class="footer-menu-wrap">
+        <ul class="footer-menu">
+          <li class="footer-menu__item">
+            <a href="{% url 'main' %}"><span>Головна</span></a>
+          </li>
+          <li class="footer-menu__item">
+            <a href="{% url 'bishop' %}"><span>Архієрей</span></a>
+          </li>
+          <li class="footer-menu__item">
+            <a href="{% url 'parishes' %}"><span>Парафії</span></a>
+          </li>
+          <li class="footer-menu__item">
+            <a href="{% url 'clergy' %}"><span>Духовенство</span></a>
+          </li>
+          <li class="footer-menu__item">
+            <a href="{% url 'photogallery' %}"><span>Фотогалерея</span></a>
+          </li>
+          <li class="footer-menu__item">
+            <a href="{% url 'contacts' %}"><span>Контакти</span></a>
+          </li>
+        </ul>
+      </nav>
+    </footer>
+    {% endblock footer %}
   </body>
 </html>
