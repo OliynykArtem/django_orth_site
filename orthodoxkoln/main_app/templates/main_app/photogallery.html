@@ -1,1 +1,43 @@
 {% extends 'main_app/base.html' %} 
+
+{% load static %}
+
+{%block file_css%}
+    <link rel="stylesheet" type="text/css" href="{% static 'main_app/css/photogallery.css' %}" />
+{%endblock file_css%}
+
+
+{%block main_content%}
+<div class="photogallery">
+    <h2 class="photogallery-main-title">Фотогалерея</h2>
+    <ul class="photogallery__list">
+        <li class="photogallery__item">
+            <div class="photogallery__image"><img src="{% static 'main_app/images/photo.jpg' %}" alt=""/></div>
+        </li>
+        <li class="photogallery__item">
+            <div class="photogallery__image"><img src="{% static 'main_app/images/photo.jpg' %}" alt=""/></div>
+        </li>
+        <li class="photogallery__item">
+            <div class="photogallery__image"><img src="{% static 'main_app/images/photo.jpg' %}" alt=""/></div>
+        </li>
+        <li class="photogallery__item">
+            <div class="photogallery__image"><img src="{% static 'main_app/images/photo.jpg' %}" alt=""/></div>
+        </li>
+        <li class="photogallery__item">
+            <div class="photogallery__image"><img src="{% static 'main_app/images/photo.jpg' %}" alt=""/></div>
+        </li>
+        <li class="photogallery__item">
+            <div class="photogallery__image"><img src="{% static 'main_app/images/photo.jpg' %}" alt=""/></div>
+        </li>
+        <li class="photogallery__item">
+            <div class="photogallery__image"><img src="{% static 'main_app/images/photo.jpg' %}" alt=""/></div>
+        </li>
+        <li class="photogallery__item">
+            <div class="photogallery__image"><img src="{% static 'main_app/images/photo.jpg' %}" alt=""/></div>
+        </li>
+        <li class="photogallery__item">
+            <div class="photogallery__image"><img src="{% static 'main_app/images/photo.jpg' %}" alt=""/></div>
+        </li>
+    </ul>
+</div>
+{%endblock main_content%}
