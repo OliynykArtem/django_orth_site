@@ -1,1 +1,58 @@
 {% extends 'main_app/base.html' %} 
+
+{% load static %}
+
+{%block file_css%}
+    <link rel="stylesheet" type="text/css" href="{% static 'main_app/css/parishes.css' %}" />
+{%endblock file_css%}
+
+
+{%block main_content%}
+<div class="parishes">
+    <h2 class="parishes-main-title">Парафії</h2>
+    <ul class="parishes__list">
+        <li class="parishes__item">
+            <div class="parishes__image"><img src="{% static 'main_app/images/church.jpg' %}" alt=""/></div>
+            <div class="parishes__content">
+                <h2 class="parishes__title">Храм Покрова Пресвятої Богородиці</h2>
+                <p class="parishes__address">вулиця Юрія Олефіренка, 14, Кропивницький, Кіровоградська область, 25000</p>
+            </div>
+        </li>
+        <li class="parishes__item">
+            <div class="parishes__image"><img src="{% static 'main_app/images/church.jpg' %}" alt=""/></div>
+            <div class="parishes__content">
+                <h2 class="parishes__title">Храм Покрова Пресвятої Богородиці</h2>
+                <p class="parishes__address">вулиця Юрія Олефіренка, 14, Кропивницький, Кіровоградська область, 25000</p>
+            </div>
+        </li>
+        <li class="parishes__item">
+            <div class="parishes__image"><img src="{% static 'main_app/images/church.jpg' %}" alt=""/></div>
+            <div class="parishes__content">
+                <h2 class="parishes__title">Храм Покрова Пресвятої Богородиці</h2>
+                <p class="parishes__address">вулиця Юрія Олефіренка, 14, Кропивницький, Кіровоградська область, 25000</p>
+            </div>
+        </li>
+        <li class="parishes__item">
+            <div class="parishes__image"><img src="{% static 'main_app/images/church.jpg' %}" alt=""/></div>
+            <div class="parishes__content">
+                <h2 class="parishes__title">Храм Покрова Пресвятої Богородиці</h2>
+                <p class="parishes__address">вулиця Юрія Олефіренка, 14, Кропивницький, Кіровоградська область, 25000</p>
+            </div>
+        </li>
+        <li class="parishes__item">
+            <div class="parishes__image"><img src="{% static 'main_app/images/church.jpg' %}" alt=""/></div>
+            <div class="parishes__content">
+                <h2 class="parishes__title">Храм Покрова Пресвятої Богородиці</h2>
+                <p class="parishes__address">вулиця Юрія Олефіренка, 14, Кропивницький, Кіровоградська область, 25000</p>
+            </div>
+        </li>
+        <li class="parishes__item">
+            <div class="parishes__image"><img src="{% static 'main_app/images/church.jpg' %}" alt=""/></div>
+            <div class="parishes__content">
+                <h2 class="parishes__title">Храм Покрова Пресвятої Богородиці</h2>
+                <p class="parishes__address">вулиця Юрія Олефіренка, 14, Кропивницький, Кіровоградська область, 25000</p>
+            </div>
+        </li>
+    </ul>
+</div>
+{%endblock main_content%}
