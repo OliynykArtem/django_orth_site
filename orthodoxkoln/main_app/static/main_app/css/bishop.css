@@ -1,0 +1,64 @@
+.bishop__title{
+    height: 80px;
+    padding: 10px 15px;
+    color: #fff;
+    text-align: center;
+    background-color: #11abff;
+    border-radius: 5px;
+    font-family: 'Ariel', sans-serif;
+    font-size: 24px;
+
+    max-width: 770px;
+}
+
+.bishop__image{
+    margin: 50px 50px 0 0;
+    background-color: #d9e7fb;
+    border-radius: 5px;
+    border: solid #11abff 2px;
+}
+
+.bishop__basic-info{
+    display: flex;
+}
+
+.bishop-info{
+    margin: 50px 0;
+    padding: 15px;
+    border-radius: 5px;
+    border: solid #11abff 2px;
+    background-color: #d9e7fb;
+}
+
+.bishop-info__title{
+    margin-bottom: 8px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.bishop-info__text{
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+.biography{
+    padding: 35px;
+    background-color: #d9e7fb;
+    border-radius: 5px;
+    border: solid #11abff 2px;
+}
+
+.biography__title{
+    margin-bottom: 15px;
+    font-weight: bold;
+    font-size: 28px;
+}
+
+.biography__text{
+    font-size: 18px;
+    line-height: 28px;
+}
+
+
+
+
