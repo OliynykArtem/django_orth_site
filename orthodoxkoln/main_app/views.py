@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 
 
 def main(request):
@@ -11,6 +11,10 @@ def bishop(request):
 
 def parishes(request):
     return render(request, 'main_app/parishes.html')
+
+
+def parish(request, parishid):
+    return render(request, 'main_app/parish.html')
 
 
 def clergy(request):
