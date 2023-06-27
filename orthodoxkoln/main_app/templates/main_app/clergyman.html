@@ -1,0 +1,48 @@
+{% extends 'main_app/base.html' %} 
+
+{% load static %}
+
+{%block file_css%}
+    <link rel="stylesheet" type="text/css" href="{% static 'main_app/css/clergyman.css' %}" />
+{%endblock file_css%}
+
+{%block main_content%}
+<div class="clergyman">
+    <h2 class="clergyman__title">Протоієрей Іван Верескун<br> Клірик Благовіщенського храму міста Кіровоград</h2>
+    <div class="clergyman__content">
+        <div class="base-info">
+            <div class="clergyman__image">
+                <img src="{% static 'main_app/images/clergyman.jpg' %}" alt="Протоієрей Іван Верескун"/>
+            </div>
+            <div class="clergyman-base-info">
+                <ul class="clergyman-info">
+                    <li class="clergyman-info__item">
+                        <h3 class="clergyman-info__title">Дата народження</h3>
+                        <p class="clergyman-info__text">19.02.1992</p>
+                    </li>
+                    <li class="clergyman-info__item">
+                        <h3 class="clergyman-info__title">Дата дияконської хіротонії</h3>
+                        <p class="clergyman-info__text">25.07.2013</p>
+                    </li>
+                    <li class="clergyman-info__item">
+                        <h3 class="clergyman-info__title">Дата ієрейської хіротонії</h3>
+                        <p class="clergyman-info__text">11.08.2013</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="clergyman__other-info">
+            <ul class="clergyman-info">
+                <li class="clergyman-info__item">
+                    <h3 class="clergyman-info__title">Світська освіта</h3>
+                    <p class="clergyman-info__text">Общеобразовательная школа с.Мельники Чорнобаевского района Черкасской области.</p>
+                </li>
+                <li class="clergyman-info__item">
+                    <h3 class="clergyman-info__title">Духовна освіта</h3>
+                    <p class="clergyman-info__text">Почаевская духовная семинария с 2009 года по 2013 год. Бакалавр Православного богословия (теологии). Тема дипломной работы: «Униатская церковь в лицах её митрополитов в 1720 – 1814 гг.»
+                        3 августа 2013 года - поступил на заочный сектор обучения Киевской духовной академии.</p>
+            </ul>
+        </div>
+    </div>
+</div>
+{%endblock main_content%}
