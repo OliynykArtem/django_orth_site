@@ -20,6 +20,9 @@ def parish(request, parishid):
 def clergy(request):
     return render(request, 'main_app/clergy.html')
 
+def clergyman(request, clergymanid):
+    return render(request, 'main_app/clergyman.html')
+    
 
 def photogallery(request):
     return render(request, 'main_app/photogallery.html')
