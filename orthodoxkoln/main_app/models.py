@@ -19,9 +19,15 @@ class Publication(models.Model):
     )
     day_of_week_created = models.CharField(verbose_name="День створення", max_length=20, choices=DAY_OF_WEEK_CHOICES)
 
+    class Meta:
+        verbose_name = "Публікація"
+        verbose_name_plural = "Публікації"
+
+
 class PublicationImage(models.Model):
     publication = models.ForeignKey("Publication", on_delete=models.CASCADE)
     image = models.ImageField(verbose_name="Фото", upload_to="media/", height_field=None, width_field=None, max_length=None)
+
 
 class PublicationVideo(models.Model):
     publication = models.ForeignKey("Publication", on_delete=models.CASCADE)
@@ -37,12 +43,23 @@ class Clergyman(models.Model):
     secular_education = models.TextField(verbose_name="Світська освіта", null=True)
     spiritual_education = models.TextField(verbose_name="Духовна освіта", null=True)
 
+    class Meta:
+        verbose_name = "Духовенство"
+        verbose_name_plural = "Духовенство"
+
+
 class Parish(models.Model):
     name = models.CharField(verbose_name="Назва", max_length=50)
     main_image = models.ImageField(verbose_name="Головне фото", null=True, upload_to="media/", height_field=None, width_field=None, max_length=None)
     address = models.CharField(verbose_name="Адреса", null=True, max_length=255)
     date_of_establishment = models.DateField(verbose_name="Дата заснування", null=True, auto_now=False, auto_now_add=False)
     history = models.TextField(verbose_name="Історія", null=True)
+
+    class Meta:
+        verbose_name = "Парафії"
+        verbose_name_plural = "Парафії"
+
+
 
 class Bishop(models.Model):
     name = models.CharField(verbose_name="Ім'я", max_length=255)
@@ -56,6 +73,10 @@ class Bishop(models.Model):
     secular_education = models.TextField(verbose_name="Світська освіта")
     spiritual_education = models.TextField(verbose_name="Духовна освіта")
     biography = models.TextField(verbose_name="Біографія")
+
+    class Meta:
+        verbose_name = "Архієрей"
+        verbose_name_plural = "Архієрей"
 
 
 # class Meta:
