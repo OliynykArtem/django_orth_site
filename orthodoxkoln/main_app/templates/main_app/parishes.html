@@ -11,60 +11,23 @@
 <div class="parishes">
     <h2 class="parishes-main-title">Парафії</h2>
     <ul class="parishes__list">
+        {% for par in all_parish %}
         <a href="{% url 'parish' parishid=1 %}">    
             <li class="parishes__item">
-                <div class="parishes__image"><img src="{% static 'main_app/images/church.jpg' %}" alt=""/></div>
+                {% if par.main_image %}
+                <div class="parishes__image"><img src="{{par.main_image.url}}" alt=""/></div>
+                {% endif %}
                 <div class="parishes__content">
-                    <h2 class="parishes__title">Храм Покрова Пресвятої Богородиці</h2>
-                    <p class="parishes__address">вулиця Юрія Олефіренка, 14, Кропивницький, Кіровоградська область, 25000</p>
+                    {% if par.name != None%}
+                    <h2 class="parishes__title">{{par.name}}</h2>
+                    {% endif %}
+                    {% if par.address != None%}
+                    <p class="parishes__address">{{par.address}}</p>
+                    {% endif %}
                 </div>
             </li>
         </a>
-        <a href="{% url 'parish' parishid=2 %}">
-            <li class="parishes__item">
-                <div class="parishes__image"><img src="{% static 'main_app/images/church.jpg' %}" alt=""/></div>
-                <div class="parishes__content">
-                    <h2 class="parishes__title">Храм Покрова Пресвятої Богородиці</h2>
-                    <p class="parishes__address">вулиця Юрія Олефіренка, 14, Кропивницький, Кіровоградська область, 25000</p>
-                </div>
-            </li>
-        </a>
-        <a href="{% url 'parish' parishid=3 %}">
-            <li class="parishes__item">
-                <div class="parishes__image"><img src="{% static 'main_app/images/church.jpg' %}" alt=""/></div>
-                <div class="parishes__content">
-                    <h2 class="parishes__title">Храм Покрова Пресвятої Богородиці</h2>
-                    <p class="parishes__address">вулиця Юрія Олефіренка, 14, Кропивницький, Кіровоградська область, 25000</p>
-                </div>
-            </li>
-        </a>
-        <a href="{% url 'parish' parishid=4 %}">
-            <li class="parishes__item">
-                <div class="parishes__image"><img src="{% static 'main_app/images/church.jpg' %}" alt=""/></div>
-                <div class="parishes__content">
-                    <h2 class="parishes__title">Храм Покрова Пресвятої Богородиці</h2>
-                    <p class="parishes__address">вулиця Юрія Олефіренка, 14, Кропивницький, Кіровоградська область, 25000</p>
-                </div>
-            </li>
-        </a>
-        <a href="{% url 'parish' parishid=5 %}">
-            <li class="parishes__item">
-                <div class="parishes__image"><img src="{% static 'main_app/images/church.jpg' %}" alt=""/></div>
-                <div class="parishes__content">
-                    <h2 class="parishes__title">Храм Покрова Пресвятої Богородиці</h2>
-                    <p class="parishes__address">вулиця Юрія Олефіренка, 14, Кропивницький, Кіровоградська область, 25000</p>
-                </div>
-            </li>
-        </a>
-        <a href="{% url 'parish' parishid=6 %}">
-            <li class="parishes__item">
-                <div class="parishes__image"><img src="{% static 'main_app/images/church.jpg' %}" alt=""/></div>
-                <div class="parishes__content">
-                    <h2 class="parishes__title">Храм Покрова Пресвятої Богородиці</h2>
-                    <p class="parishes__address">вулиця Юрія Олефіренка, 14, Кропивницький, Кіровоградська область, 25000</p>
-                </div>
-            </li>
-        </a>
+        {% endfor %}
     </ul>
 </div>
 {%endblock main_content%}

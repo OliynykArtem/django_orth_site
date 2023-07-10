@@ -2,26 +2,29 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 
 class Publication(models.Model):
-    title = models.CharField(verbose_name="Заголовок", null=True, max_length=50)
-    text = models.TextField(verbose_name="Текст", null=True)
-    main_image = models.ImageField(verbose_name="Головне фото", null=True,
+    title = models.CharField(verbose_name="Заголовок", null=True, blank=True, max_length=255)
+    text = models.TextField(verbose_name="Текст", null=True, blank=True)
+    main_image = models.ImageField(verbose_name="Головне фото", null=True, blank=True,
      upload_to="media/", height_field=None, width_field=None, max_length=None)
     date_created = models.DateField(verbose_name="Дата створення", auto_now=False, auto_now_add=True)
 
-    DAY_OF_WEEK_CHOICES = (
-        ('MONDAY', 'Понеділок'),
-        ('TUESDAY', 'Вівторок'),
-        ('WEDNESDAY', 'Середа'),
-        ('THURSDAY', 'Четвер'),
-        ('FRIDAY', "П'ятниця"),
-        ('SATURDAY', 'Субота'),
-        ('SUNDAY', 'Неділя'),
-    )
-    day_of_week_created = models.CharField(verbose_name="День створення", max_length=20, choices=DAY_OF_WEEK_CHOICES)
+    # DAY_OF_WEEK_CHOICES = (
+    #     ('MONDAY', 'Понеділок'),
+    #     ('TUESDAY', 'Вівторок'),
+    #     ('WEDNESDAY', 'Середа'),
+    #     ('THURSDAY', 'Четвер'),
+    #     ('FRIDAY', "П'ятниця"),
+    #     ('SATURDAY', 'Субота'),
+    #     ('SUNDAY', 'Неділя'),
+    # )
+    # day_of_week_created = models.CharField(verbose_name="День створення", max_length=20, choices=DAY_OF_WEEK_CHOICES)
 
     class Meta:
         verbose_name = "Публікація"
         verbose_name_plural = "Публікації"
+
+    def __str__(self):
+        return self.title
 
 
 class PublicationImage(models.Model):
@@ -31,33 +34,39 @@ class PublicationImage(models.Model):
 
 class PublicationVideo(models.Model):
     publication = models.ForeignKey("Publication", on_delete=models.CASCADE)
-    video = models.FileField(verbose_name="Відео", upload_to="media/", max_length=200)
+    video = models.FileField(verbose_name="Відео", upload_to="media/", max_length=255)
     
 class Clergyman(models.Model):
     name = models.CharField(verbose_name="Ім'я", max_length=50)
-    image = models.ImageField(verbose_name="Фото", null=True, upload_to="media/", height_field=None, width_field=None, max_length=None)
-    job_title = models.CharField(verbose_name="Духовна посада", null=True, max_length=200)
-    birth_date = models.DateField(verbose_name="Дата народження", null=True, auto_now=False, auto_now_add=False)
-    deacon_ordination_date = models.DateField(verbose_name="Дияконська хіротонія", null=True, auto_now=False, auto_now_add=False)
-    priest_ordination_date = models.DateField(verbose_name="Ієрейська хіротонія", null=True, auto_now=False, auto_now_add=False)
-    secular_education = models.TextField(verbose_name="Світська освіта", null=True)
-    spiritual_education = models.TextField(verbose_name="Духовна освіта", null=True)
+    image = models.ImageField(verbose_name="Фото", null=True, blank=True, upload_to="media/", height_field=None, width_field=None, max_length=None)
+    job_title = models.CharField(verbose_name="Духовна посада", null=True, blank=True, max_length=255)
+    birth_date = models.DateField(verbose_name="Дата народження", null=True, blank=True, auto_now=False, auto_now_add=False)
+    deacon_ordination_date = models.DateField(verbose_name="Дияконська хіротонія", null=True, blank=True, auto_now=False, auto_now_add=False)
+    priest_ordination_date = models.DateField(verbose_name="Ієрейська хіротонія", null=True, blank=True, auto_now=False, auto_now_add=False)
+    secular_education = models.TextField(verbose_name="Світська освіта", null=True, blank=True)
+    spiritual_education = models.TextField(verbose_name="Духовна освіта", null=True, blank=True)
 
     class Meta:
         verbose_name = "Духовенство"
         verbose_name_plural = "Духовенство"
 
+    def __str__(self):
+        return self.name
+
 
 class Parish(models.Model):
-    name = models.CharField(verbose_name="Назва", max_length=50)
-    main_image = models.ImageField(verbose_name="Головне фото", null=True, upload_to="media/", height_field=None, width_field=None, max_length=None)
-    address = models.CharField(verbose_name="Адреса", null=True, max_length=255)
-    date_of_establishment = models.DateField(verbose_name="Дата заснування", null=True, auto_now=False, auto_now_add=False)
-    history = models.TextField(verbose_name="Історія", null=True)
+    name = models.TextField(verbose_name="Назва", max_length=255)
+    main_image = models.ImageField(verbose_name="Головне фото", null=True, blank=True, upload_to="media/", height_field=None, width_field=None, max_length=None)
+    address = models.CharField(verbose_name="Адреса", null=True, blank=True, max_length=255)
+    date_of_establishment = models.DateField(verbose_name="Дата заснування", null=True, blank=True, auto_now=False, auto_now_add=False)
+    history = models.TextField(verbose_name="Історія", null=True, blank=True)
 
     class Meta:
-        verbose_name = "Парафії"
+        verbose_name = "Парафія"
         verbose_name_plural = "Парафії"
+
+    def __str__(self):
+        return self.name
 
 
 
@@ -66,6 +75,8 @@ class Bishop(models.Model):
     image = models.ImageField(verbose_name="Фото", upload_to=None, height_field=None, width_field=None, max_length=None)
     birth_date = models.DateField(verbose_name="Дата народження", auto_now=False, auto_now_add=False)
     name_day = models.CharField(verbose_name="День тезоіменитства", max_length=20)
+    ## Щоб можна було вибирати день і місяць за допомоги метода choices 
+
     tonsure_date = models.DateField(verbose_name="Дата постригу", auto_now=False, auto_now_add=False)
     deacon_ordination_date = models.DateField(verbose_name="Дата дияконської хіротонії", auto_now=False, auto_now_add=False)
     priest_ordination_date = models.DateField(verbose_name="Дата ієрейської хіротонії", auto_now=False, auto_now_add=False)
@@ -74,17 +85,13 @@ class Bishop(models.Model):
     spiritual_education = models.TextField(verbose_name="Духовна освіта")
     biography = models.TextField(verbose_name="Біографія")
 
+    ## Додати def __str__(self):
+    ##            return 'Митрополит Онуфрій'
+    ## Щоб "Митрополит Онуфрій підтягувалось з бд"
+
     class Meta:
         verbose_name = "Архієрей"
         verbose_name_plural = "Архієрей"
 
 
-# class Meta:
-#     verbose_name = _("Publication")
-#     verbose_name_plural = _("Publications")
-
-# def __str__(self):
-#     return self.name
-
-# def get_absolute_url(self):
-#     return reverse("Publication_detail", kwargs={"pk": self.pk})
+## Додати def get_absolute_url(self): для кожної моделі

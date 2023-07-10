@@ -11,78 +11,21 @@
 <div class="clergy">
     <h2 class="clergy-main-title">Духовенство</h2>
     <ul class="clergy__list">
+        {% for clergyman in clergymans %}
         <a href="{% url 'clergyman' clergymanid=1 %}">    
             <li class="clergy__item">
-                <div class="clergy__image"><img src="{% static 'main_app/images/clergyman.jpg' %}" alt=""/></div>
+                {% if clergyman.image %}
+                <div class="clergy__image"><img src="{{clergyman.image.url}}"/></div>
+                {% endif %}
                 <div class="clergy__content">
-                    <h2 class="clergy__name">Протоієрей Іван Верескун</h2>
-                    <p class="clergy__job-title">Клірик Благовіщенського храму міста Кропивницький</p>
+                    <h2 class="clergy__name">{{clergyman.name}}</h2>
+                    {% if clergyman.job_title != None %}
+                    <p class="clergy__job-title">{{clergyman.job_title}}</p>
+                    {% endif %}
                 </div>
             </li>
         </a>
-        <a href="{% url 'clergyman' clergymanid=2 %}">
-            <li class="clergy__item">
-                <div class="clergy__image"><img src="{% static 'main_app/images/clergyman.jpg' %}" alt=""/></div>
-                <div class="clergy__content">
-                    <h2 class="clergy__name">Протоієрей Іван Верескун</h2>
-                    <p class="clergy__job-title">Клірик Благовіщенського храму міста Кропивницький</p>
-                </div>
-            </li>
-        </a>
-        <a href="{% url 'clergyman' clergymanid=3 %}">
-            <li class="clergy__item">
-                <div class="clergy__image"><img src="{% static 'main_app/images/clergyman.jpg' %}" alt=""/></div>
-                <div class="clergy__content">
-                    <h2 class="clergy__name">Протоієрей Іван Верескун</h2>
-                    <p class="clergy__job-title">Клірик Благовіщенського храму міста Кропивницький</p>
-                </div>
-            </li>
-        </a>
-        <a href="{% url 'clergyman' clergymanid=4 %}">
-            <li class="clergy__item">
-                <div class="clergy__image"><img src="{% static 'main_app/images/clergyman.jpg' %}" alt=""/></div>
-                <div class="clergy__content">
-                    <h2 class="clergy__name">Протоієрей Іван Верескун</h2>
-                    <p class="clergy__job-title">Клірик Благовіщенського храму міста Кропивницький</p>
-                </div>
-            </li>
-        </a>
-        <a href="{% url 'clergyman' clergymanid=5 %}">
-            <li class="clergy__item">
-                <div class="clergy__image"><img src="{% static 'main_app/images/clergyman.jpg' %}" alt=""/></div>
-                <div class="clergy__content">
-                    <h2 class="clergy__name">Протоієрей Іван Верескун</h2>
-                    <p class="clergy__job-title">Клірик Благовіщенського храму міста Кропивницький</p>
-                </div>
-            </li>
-        </a>
-        <a href="{% url 'clergyman' clergymanid=6 %}">
-            <li class="clergy__item">
-                <div class="clergy__image"><img src="{% static 'main_app/images/clergyman.jpg' %}" alt=""/></div>
-                <div class="clergy__content">
-                    <h2 class="clergy__name">Протоієрей Іван Верескун</h2>
-                    <p class="clergy__job-title">Клірик Благовіщенського храму міста Кропивницький</p>
-                </div>
-            </li>
-        </a>
-        <a href="{% url 'clergyman' clergymanid=7 %}">
-            <li class="clergy__item">
-                <div class="clergy__image"><img src="{% static 'main_app/images/clergyman.jpg' %}" alt=""/></div>
-                <div class="clergy__content">
-                    <h2 class="clergy__name">Протоієрей Іван Верескун</h2>
-                    <p class="clergy__job-title">Клірик Благовіщенського храму міста Кропивницький</p>
-                </div>
-            </li>
-        </a>
-        <a href="{% url 'clergyman' clergymanid=8 %}">
-            <li class="clergy__item">
-                <div class="clergy__image"><img src="{% static 'main_app/images/clergyman.jpg' %}" alt=""/></div>
-                <div class="clergy__content">
-                    <h2 class="clergy__name">Протоієрей Іван Верескун</h2>
-                    <p class="clergy__job-title">Клірик Благовіщенського храму міста Кропивницький</p>
-                </div>
-            </li>
-        </a>
+        {% endfor %}
     </ul>
 </div>
 {%endblock main_content%}
