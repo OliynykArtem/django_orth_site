@@ -12,7 +12,7 @@
     <h2 class="parishes-main-title">Парафії</h2>
     <ul class="parishes__list">
         {% for par in all_parish %}
-        <a href="{% url 'parish' parishid=1 %}">    
+        <a href="{% url 'parish' par.pk %}">    
             <li class="parishes__item">
                 {% if par.main_image %}
                 <div class="parishes__image"><img src="{{par.main_image.url}}" alt=""/></div>

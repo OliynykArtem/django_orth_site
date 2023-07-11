@@ -5,50 +5,57 @@
 {%endblock file_css%}
 
 
-
-
 {%block main_content%}
         <div class="news">
         <h2 class="news__title">Останні новини Уманської Єпархії</h2>
         <ul class="news__tape">
-            {% for publication in all_publication%}
+            {% for publication in page_obj%}
             <li class="news-item">
-            <div class="news-item__header">
-                <span class="news-item__date-created">{{publication.date_created}}</span>
-                <div class="news-item__title">
-                <a href="#">{{publication.title}}</a>
+                <div class="news-item__header">
+                    <span class="news-item__date-created">{{publication.date_created|date:"d.m.Y"}}</span>
+                    <div class="news-item__title">
+                    <a href="{% url 'publication' publication.pk %}">{{publication.title}}</a>
+                    </div>
                 </div>
-            </div>
-            <div class="news-item__body">
-                <div class="news-item__image">
-                    {% if publication.main_image %}
-                    <a href="#">
-                        <img
-                        src="{{publication.main_image.url}}"
-                        style="width: 250px; height: auto" 
-                        />
-                    </a>
-                    {% endif %}
+                <div class="news-item__body">
+                    <div class="news-item__image">
+                        {% if publication.main_image %}
+                        <a href="{% url 'publication' publication.pk %}">
+                            <img
+                            src="{{publication.main_image.url}}"
+                            style="width: 250px; height: auto" 
+                            />
+                        </a>
+                        {% endif %}
+                    </div>
+                    <div class="news-item__intro-text">{{ publication.text|truncatewords:30 }}</div>
                 </div>
-                <div class="news-item__intro-text">{{ publication.text|truncatewords:30 }}</div>
-            </div>
             </li>
             {% endfor %}
         </ul>
-
         <div class="pagination">
             <ul class="pagination-list">
-            <li><a href="#">Попередня</a></li>
-            <li><a href="#">Початок</a></li>
-            <li><a class="pagination-list_active" href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">5</a></li>
-            <li><a href="#">Наступна</a></li>
-            <li><a href="#">Кінець</a></li>
-            </ul>
-            Сторінка 1 із 392
+                {% if page_obj.has_previous%}
+                <li><a href="?page=1">Початок</a></li>
+                <li><a href="?page={{page_obj.previous_page_number}}">Попередня</a></li>
+                {% endif %}
+                {% for page_number in page_obj.paginator.page_range %}
+                <li><a href="?page={{page_number}}">{{page_number}}</a></li>
+                {% endfor %}
+                {% if page_obj.has_next%}
+                <li><a href="?page={{page_obj.next_page_number}}">Наступна</a></li>
+                {% endif %}
+
+                {% comment %} <li><a href="#">Початок</a></li>
+                <li><a class="pagination-list_active" href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#">Наступна</a></li>
+                <li><a href="#">Кінець</a></li>
+            </ul> {% endcomment %}
+            {% comment %} Сторінка 1 із 392 {% endcomment %}
         </div>
         </div>
         {%endblock main_content%}

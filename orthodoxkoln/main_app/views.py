@@ -1,4 +1,5 @@
 from django.shortcuts import get_object_or_404, render
+from django.core.paginator import Paginator
 from main_app.models import *
 import logging
 
@@ -22,12 +23,26 @@ logger.addHandler(console_handler)
 
 
 all_publication = Publication.objects.all()
+# paginator = Paginator(all_publication, 3)
+# logger.debug(paginator.count)
+# logger.debug(paginator.num_pages)
+# logger.debug(paginator.page_range)
+# p = paginator.page(1)
+# publications_by_page_number = p.object_list
+# logger.debug(p.object_list)
+# logger.debug(all_publication)
 
 def main(request):
-    return render(request, 'main_app/main.html', {'all_publication': all_publication})
+    paginator = Paginator(all_publication, 1)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+    return render(request, 'main_app/main.html', {'page_obj': page_obj})
 
 def publication(request, publicationid):
-    return render(request, 'main_app/publication.html')
+    publication_from_db = Publication.objects.get(pk=publicationid)
+    publication_images_from_db = publication_from_db.publicationimage_set.all()
+    return render(request, 'main_app/publication.html', {'publication_from_db': publication_from_db, 'publication_images_from_db': publication_images_from_db})
 
 
 def bishop(request):
@@ -41,7 +56,9 @@ def parishes(request):
 
 
 def parish(request, parishid):
-    return render(request, 'main_app/parish.html')
+    parish_from_db = Parish.objects.get(pk=parishid)
+    parish_images_from_db = parish_from_db.parishimage_set.all()
+    return render(request, 'main_app/parish.html', {'parish_from_db': parish_from_db, 'parish_images_from_db': parish_images_from_db})
 
 
 clergymans = Clergyman.objects.all()

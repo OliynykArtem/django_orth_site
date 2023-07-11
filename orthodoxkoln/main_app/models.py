@@ -28,14 +28,23 @@ class Publication(models.Model):
 
 
 class PublicationImage(models.Model):
-    publication = models.ForeignKey("Publication", on_delete=models.CASCADE)
+    publication = models.ForeignKey("Publication", verbose_name="Публікація", on_delete=models.CASCADE)
     image = models.ImageField(verbose_name="Фото", upload_to="media/", height_field=None, width_field=None, max_length=None)
+
+    class Meta:
+        verbose_name = "Фото публікації"
+        verbose_name_plural = "Фото публікацій"
 
 
 class PublicationVideo(models.Model):
-    publication = models.ForeignKey("Publication", on_delete=models.CASCADE)
+    publication = models.ForeignKey("Publication", verbose_name="Публікація", on_delete=models.CASCADE)
     video = models.FileField(verbose_name="Відео", upload_to="media/", max_length=255)
     
+    class Meta:
+        verbose_name = "Відео публікації"
+        verbose_name_plural = "Відео публікацій"
+
+
 class Clergyman(models.Model):
     name = models.CharField(verbose_name="Ім'я", max_length=50)
     image = models.ImageField(verbose_name="Фото", null=True, blank=True, upload_to="media/", height_field=None, width_field=None, max_length=None)
@@ -67,6 +76,14 @@ class Parish(models.Model):
 
     def __str__(self):
         return self.name
+
+class ParishImage(models.Model):
+    parish = models.ForeignKey("Parish", verbose_name="Парафія", on_delete=models.CASCADE)
+    image = models.ImageField(verbose_name="Фото", upload_to="media/", height_field=None, width_field=None, max_length=None)
+    
+    class Meta:
+        verbose_name = "Фото парафії"
+        verbose_name_plural = "Фото парафій"
 
 
 
