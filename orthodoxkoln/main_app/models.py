@@ -2,7 +2,7 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 
 class Publication(models.Model):
-    title = models.CharField(verbose_name="Заголовок", null=True, blank=True, max_length=255)
+    title = models.TextField(verbose_name="Заголовок", null=True, blank=True)
     text = models.TextField(verbose_name="Текст", null=True, blank=True)
     main_image = models.ImageField(verbose_name="Головне фото", null=True, blank=True,
      upload_to="media/", height_field=None, width_field=None, max_length=None)

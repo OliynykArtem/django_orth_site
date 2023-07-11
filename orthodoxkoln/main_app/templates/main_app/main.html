@@ -5,120 +5,49 @@
 {%endblock file_css%}
 
 
+
+
 {%block main_content%}
         <div class="news">
         <h2 class="news__title">Останні новини Уманської Єпархії</h2>
         <ul class="news__tape">
+            {% for publication in all_publication%}
             <li class="news-item">
             <div class="news-item__header">
-                <span class="news-item__date-created">
-                Неділя, 04 червня 2023
-                </span>
+                <span class="news-item__date-created">{{publication.date_created}}</span>
                 <div class="news-item__title">
-                <a href="#"> День Святої Трійці. П'ятидесятниця </a>
+                <a href="#">{{publication.title}}</a>
                 </div>
             </div>
             <div class="news-item__body">
                 <div class="news-item__image">
-                <a
-                    href="#"
-                    title="День Святої Трійці. П'ятидесятниця"
-                >
-                    <img
-                    src="{% static 'main_app/images/1.jpg' %}"
-                    alt="День Святої Трійці. П'ятидесятниця"
-                    style="width: 250px; height: auto"
-                    />
-                </a>
+                    {% if publication.main_image %}
+                    <a href="#">
+                        <img
+                        src="{{publication.main_image.url}}"
+                        style="width: 250px; height: auto" 
+                        />
+                    </a>
+                    {% endif %}
                 </div>
-                <div class="news-item__intro-text">
-                &nbsp; &nbsp;"Святым духом всяка душа живится" - співається
-                на богослужінні. Зішестям Святого Духа затверджується в
-                світі християнська віра і починає своє буття Церква
-                Христова, тому свято П'ятидесятниці, день зішестя Святого…
-                </div>
+                <div class="news-item__intro-text">{{ publication.text|truncatewords:30 }}</div>
             </div>
             </li>
-
-            <li class="news-item">
-            <div class="news-item__header">
-                <span class="news-item__date-created">
-                Неділя, 04 червня 2023
-                </span>
-                <div class="news-item__title">
-                <a href="#"> День Святої Трійці. П'ятидесятниця </a>
-                </div>
-            </div>
-            <div class="news-item__body">
-                <div class="news-item__image">
-                <a
-                    href="#"
-                    title="День Святої Трійці. П'ятидесятниця"
-                >
-                    <img
-                    src="{% static 'main_app/images/1.jpg' %}"
-                    alt="День Святої Трійці. П'ятидесятниця"
-                    style="width: 250px; height: auto"
-                    />
-                </a>
-                </div>
-                <div class="news-item__intro-text">
-                &nbsp; &nbsp;"Святым духом всяка душа живится" - співається
-                на богослужінні. Зішестям Святого Духа затверджується в
-                світі християнська віра і починає своє буття Церква
-                Христова, тому свято П'ятидесятниці, день зішестя Святого…
-                </div>
-            </div>
-            </li>
-
-            <li class="news-item">
-            <div class="news-item__header">
-                <span class="news-item__date-created">
-                Неділя, 04 червня 2023
-                </span>
-                <div class="news-item__title">
-                <a href="#"> День Святої Трійці. П'ятидесятниця </a>
-                </div>
-            </div>
-            <div class="news-item__body">
-                <div class="news-item__image">
-                <a
-                    href="#"
-                    title="День Святої Трійці. П'ятидесятниця"
-                >
-                    <img
-                    src="{% static 'main_app/images/1.jpg' %}"
-                    alt="День Святої Трійці. П'ятидесятниця"
-                    style="width: 250px; height: auto"
-                    />
-                </a>
-                </div>
-                <div class="news-item__intro-text">
-                &nbsp; &nbsp;"Святым духом всяка душа живится" - співається
-                на богослужінні. Зішестям Святого Духа затверджується в
-                світі християнська віра і починає своє буття Церква
-                Христова, тому свято П'ятидесятниці, день зішестя Святого…
-                </div>
-            </div>
-            </li>
+            {% endfor %}
         </ul>
 
         <div class="pagination">
             <ul class="pagination-list">
-            <li class="pagination-list_active"><a href="#">1</a></li>
+            <li><a href="#">Попередня</a></li>
+            <li><a href="#">Початок</a></li>
+            <li><a class="pagination-list_active" href="#">1</a></li>
             <li><a href="#">2</a></li>
             <li><a href="#">3</a></li>
             <li><a href="#">4</a></li>
             <li><a href="#">5</a></li>
-            <li><a href="#">6</a></li>
-            <li><a href="#">7</a></li>
-            <li><a href="#">8</a></li>
-            <li><a href="#">9</a></li>
-            <li><a href="#">10</a></li>
             <li><a href="#">Наступна</a></li>
             <li><a href="#">Кінець</a></li>
             </ul>
-            <div class="clr"></div>
             Сторінка 1 із 392
         </div>
         </div>

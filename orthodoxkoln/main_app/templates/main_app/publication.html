@@ -1,0 +1,53 @@
+{% extends 'main_app/base.html' %} 
+
+{% load static %}
+
+{%block file_css%}
+    <link rel="stylesheet" type="text/css" href="{% static 'main_app/css/publication.css' %}" />
+{%endblock file_css%}
+
+{%block main_content%}
+<div class="publication">
+    <h2 class="publication__title">Акафіст Божій Матері перед її іконою "Любечська"</h2>
+    <div class="publication__content">
+        <div class="publication__main-image-wrapp">
+            <div class="publication__main-image">
+                    <img src="{% static 'main_app/images/12.jpg' %}"/>
+            </div>
+        </div>
+        <div class="publication__text">
+            <p>
+                16 червня 2023 року в Свято-Миколаївському кафедральному соборі міста 
+                Умань було звершено читання акафісту Божій Матері перед її іконою 
+                "Любечська", яке очолив Високопреосвященнійший митрополит Уманський 
+                і Звенигородський Пантелеімон.
+                Владиці співслужило духовенство міста.По завершенні акафісту Архієрей 
+                помазав усіх присутніх освяченим єлеєм.
+            </p>
+        </div>
+        <div class="images-container">
+            <h2 class="images-title">Фото</h2>
+            <ul class="images">
+                <li class="images__item">
+                    <a href="#"><img src="{% static 'main_app/images/pokrovskiy_1.jpg' %}" alt=""/></a>
+                </li>
+                <li class="images__item">
+                    <a href="#"><img src="{% static 'main_app/images/pokrovskiy_2.jpg' %}" alt=""/></a>
+                </li>
+                <li class="images__item">
+                    <a href="#"><img src="{% static 'main_app/images/pokrovskiy_1.jpg' %}" alt=""/></a>
+                </li>
+                <li class="images__item">
+                    <a href="#"><img src="{% static 'main_app/images/pokrovskiy_2.jpg' %}" alt=""/></a>
+                </li>
+                <li class="images__item">
+                    <a href="#"><img src="{% static 'main_app/images/pokrovskiy_3.jpg' %}" alt=""/></a>
+                </li>
+                <li class="images__item">
+                    <a href="#"><img src="{% static 'main_app/images/pokrovskiy_3.jpg' %}" alt=""/></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+{%endblock main_content%}

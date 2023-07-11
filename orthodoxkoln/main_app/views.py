@@ -20,8 +20,14 @@ console_handler.setFormatter(formatter)
 logger.addHandler(console_handler)
 
 
+
+all_publication = Publication.objects.all()
+
 def main(request):
-    return render(request, 'main_app/main.html')
+    return render(request, 'main_app/main.html', {'all_publication': all_publication})
+
+def publication(request):
+    return render(request, 'main_app/publication.html')
 
 
 def bishop(request):
@@ -29,7 +35,6 @@ def bishop(request):
 
 
 all_parish = Parish.objects.all()
-logger.debug(all_parish)
 
 def parishes(request):
     return render(request, 'main_app/parishes.html', {'all_parish': all_parish})
