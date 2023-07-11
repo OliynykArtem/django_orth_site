@@ -26,7 +26,7 @@ all_publication = Publication.objects.all()
 def main(request):
     return render(request, 'main_app/main.html', {'all_publication': all_publication})
 
-def publication(request):
+def publication(request, publicationid):
     return render(request, 'main_app/publication.html')
 
 
@@ -50,7 +50,8 @@ def clergy(request):
     return render(request, 'main_app/clergy.html', {'clergymans': clergymans})
 
 def clergyman(request, clergymanid):
-    return render(request, 'main_app/clergyman.html')
+    clergyman_from_db = Clergyman.objects.get(pk=clergymanid)
+    return render(request, 'main_app/clergyman.html', {'clergyman_from_db': clergyman_from_db})
     
 
 def photogallery(request):

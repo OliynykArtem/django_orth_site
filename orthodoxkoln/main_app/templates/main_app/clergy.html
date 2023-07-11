@@ -12,7 +12,7 @@
     <h2 class="clergy-main-title">Духовенство</h2>
     <ul class="clergy__list">
         {% for clergyman in clergymans %}
-        <a href="{% url 'clergyman' clergymanid=1 %}">    
+        <a href="{% url 'clergyman' clergyman.pk %}">    
             <li class="clergy__item">
                 {% if clergyman.image %}
                 <div class="clergy__image"><img src="{{clergyman.image.url}}"/></div>

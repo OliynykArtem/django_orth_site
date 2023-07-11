@@ -7,7 +7,7 @@ from .views import *
 
 urlpatterns = [
     path('', main, name='main'),
-    path('publication/', publication, name='publication'),
+    path('publication/<int:publicationid>/', publication, name='publication'),
     path('bishop/', bishop, name='bishop'),
     path('parishes/', parishes, name='parishes'),
     path('parish/<int:parishid>/', parish, name='parish'),
