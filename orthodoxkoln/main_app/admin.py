@@ -8,6 +8,9 @@ class PublicationAdmin(admin.ModelAdmin):
 class PublicationImageAdmin(admin.ModelAdmin):
     list_display = ('publication', 'image')
 
+class PublicationVideoAdmin(admin.ModelAdmin):
+    list_display = ('publication', 'video')
+
 class ClergymanAdmin(admin.ModelAdmin):
     list_display = ('name', 'image', 'job_title')
 
@@ -23,3 +26,4 @@ admin.site.register(Clergyman, ClergymanAdmin)
 admin.site.register(Parish, ParishAdmin)
 admin.site.register(ParishImage, ParishImageAdmin)
 admin.site.register(PublicationImage, PublicationImageAdmin)
+admin.site.register(PublicationVideo, PublicationVideoAdmin)

@@ -34,6 +34,13 @@
             </ul>
         </div>
         {% endif %}
+        {% for p_vid in publication_videos_from_db%}
+        <div>
+            <video>
+                <source src="{{p_vid.video.url}}" type="video/mp4"/>
+            </video>
+        </div>
+        {% endfor %}
     </div>
 </div>
 {%endblock main_content%}

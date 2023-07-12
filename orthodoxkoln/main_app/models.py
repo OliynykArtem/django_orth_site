@@ -8,17 +8,6 @@ class Publication(models.Model):
      upload_to="media/", height_field=None, width_field=None, max_length=None)
     date_created = models.DateField(verbose_name="Дата створення", auto_now=False, auto_now_add=True)
 
-    # DAY_OF_WEEK_CHOICES = (
-    #     ('MONDAY', 'Понеділок'),
-    #     ('TUESDAY', 'Вівторок'),
-    #     ('WEDNESDAY', 'Середа'),
-    #     ('THURSDAY', 'Четвер'),
-    #     ('FRIDAY', "П'ятниця"),
-    #     ('SATURDAY', 'Субота'),
-    #     ('SUNDAY', 'Неділя'),
-    # )
-    # day_of_week_created = models.CharField(verbose_name="День створення", max_length=20, choices=DAY_OF_WEEK_CHOICES)
-
     class Meta:
         verbose_name = "Публікація"
         verbose_name_plural = "Публікації"

@@ -23,26 +23,33 @@ logger.addHandler(console_handler)
 
 
 all_publication = Publication.objects.all()
-# paginator = Paginator(all_publication, 3)
-# logger.debug(paginator.count)
-# logger.debug(paginator.num_pages)
-# logger.debug(paginator.page_range)
-# p = paginator.page(1)
-# publications_by_page_number = p.object_list
-# logger.debug(p.object_list)
-# logger.debug(all_publication)
 
 def main(request):
     paginator = Paginator(all_publication, 1)
     page_number = request.GET.get('page')
+    logger.debug(page_number)
     page_obj = paginator.get_page(page_number)
+    
+    # Працює? Не чіпай!
 
-    return render(request, 'main_app/main.html', {'page_obj': page_obj})
+    p_number = page_obj.number
+    actual_page_range = page_obj.paginator.page_range
+    visible_page_range = range(int(p_number) - 2, int(p_number) + 3)
+
+    while(min(actual_page_range) > min(visible_page_range)):
+        visible_page_range = range(min(visible_page_range) + 1, max(visible_page_range) + 1)
+
+    while(max(actual_page_range) < max(visible_page_range)):
+        visible_page_range = range(min(visible_page_range), max(visible_page_range))
+
+    return render(request, 'main_app/main.html', {'page_obj': page_obj, 'visible_page_range': visible_page_range})
+
 
 def publication(request, publicationid):
     publication_from_db = Publication.objects.get(pk=publicationid)
     publication_images_from_db = publication_from_db.publicationimage_set.all()
-    return render(request, 'main_app/publication.html', {'publication_from_db': publication_from_db, 'publication_images_from_db': publication_images_from_db})
+    publication_videos_from_db = publication_from_db.publicationvideo_set.all()
+    return render(request, 'main_app/publication.html', {'publication_from_db': publication_from_db, 'publication_images_from_db': publication_images_from_db, 'publication_videos_from_db': publication_videos_from_db})
 
 
 def bishop(request):

@@ -39,23 +39,17 @@
                 <li><a href="?page=1">Початок</a></li>
                 <li><a href="?page={{page_obj.previous_page_number}}">Попередня</a></li>
                 {% endif %}
-                {% for page_number in page_obj.paginator.page_range %}
+                {% for page_number in visible_page_range %}
+                {% if page_obj.number == page_number %}
+                <li class="page-active" >{{page_number}}</li>
+                {% else %}
                 <li><a href="?page={{page_number}}">{{page_number}}</a></li>
+                {% endif%}
                 {% endfor %}
                 {% if page_obj.has_next%}
                 <li><a href="?page={{page_obj.next_page_number}}">Наступна</a></li>
+                <li><a href="?page={{page_obj.paginator.num_pages}}">Кінець</a></li>
                 {% endif %}
-
-                {% comment %} <li><a href="#">Початок</a></li>
-                <li><a class="pagination-list_active" href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li><a href="#">Наступна</a></li>
-                <li><a href="#">Кінець</a></li>
-            </ul> {% endcomment %}
-            {% comment %} Сторінка 1 із 392 {% endcomment %}
         </div>
         </div>
         {%endblock main_content%}
