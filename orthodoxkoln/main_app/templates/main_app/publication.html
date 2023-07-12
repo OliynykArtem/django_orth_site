@@ -28,19 +28,26 @@
             <ul class="images">
                 {% for p_img in publication_images_from_db%}
                 <li class="images__item">
-                    <a href="#"><img src="{{p_img.image.url}}"/></a>
+                    <a href="{{p_img.image.url}}"><img src="{{p_img.image.url}}"/></a>
                 </li>
                 {% endfor %}
             </ul>
         </div>
         {% endif %}
-        {% for p_vid in publication_videos_from_db%}
-        <div>
-            <video>
-                <source src="{{p_vid.video.url}}" type="video/mp4"/>
-            </video>
+        {% if publication_videos_from_db %}
+        <div class="videos-container">
+            <h2 class="videos-title">Відео</h2>
+            <ul class="videos">
+                {% for p_vid in publication_videos_from_db%}
+                <li class="videos__item">
+                    <video controls>
+                        <source src="{{p_vid.video.url}}" type="video/mp4"/>
+                    </video>
+                </li>
+                {% endfor %}
+            </ul>
         </div>
-        {% endfor %}
+        {% endif %}
     </div>
 </div>
 {%endblock main_content%}

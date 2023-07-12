@@ -25,7 +25,7 @@ logger.addHandler(console_handler)
 all_publication = Publication.objects.all()
 
 def main(request):
-    paginator = Paginator(all_publication, 1)
+    paginator = Paginator(all_publication, 5)
     page_number = request.GET.get('page')
     logger.debug(page_number)
     page_obj = paginator.get_page(page_number)
