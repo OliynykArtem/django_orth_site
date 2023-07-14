@@ -182,9 +182,9 @@
     width: 770px;
   }
 
-  .side-panel {
+  /* .side-panel {
     width: 360px;
-  }
+  } */
 
   .sidebar-module{
     width: 360px;
@@ -196,7 +196,7 @@
       color: #fff;
       text-align: center;
       background-color: #11abff;
-      border-radius: 5px;
+      border-radius: 5px 5px 0 0;
       font-family: 'Ariel', sans-serif;
       font-size: 24px;
     }
@@ -204,6 +204,8 @@
     .sidebar-module__content{
     padding: 10px 15px;
     background-color: #d9e7fb;
+    border: solid 1px #11abff;
+    border-radius: 0 0 5px 5px;
     }
   
     .calendar {
@@ -219,6 +221,7 @@
   .calendar__day-number{
     padding: 7px 0;
     background-color: #fff;
+    border-radius: 5px;
   }
   
   .calendar__day-number a{
@@ -230,7 +233,36 @@
   }
 
 
+  .day-info{
+    margin: 25px 10px 0 10px;
+  }
 
+  .day-info__title{
+    margin: 20px 0 10px 0;
+    padding: 10px 15px;
+    height: 46px;
+    color: #fff;
+    text-align: center;
+    background-color: #11abff;
+    border-radius: 5px;
+    font-family: 'Ariel', sans-serif;
+    font-size: 20px;
+  }
+
+  .info-about-saints p{
+    padding: 0 5px;
+    color: #1a1a1a;
+    font-size: 18px;
+    font-weight: 4px;
+    text-align: center;
+  }
+
+  .day-parable p{
+    padding: 0 5px 15px 5px;
+    color: #1a1a1a;
+    font-size: 18px;
+    text-align: justify;
+  }
 
   footer {
     padding: 0 80px;
@@ -267,4 +299,24 @@
   .footer-menu__item a span{
     color: #F5F4EE;
     font-size: 22px;
+  }
+
+  @media screen and (max-width: 1100px) {
+    .main-conteiner {
+      flex-direction: column;
+      align-items: center;
+    }
+    .side-panel {
+      margin-top: 45px;
+      display: flex;
+      flex-direction: column;
+    }
+    .sidebar-module{
+      width: 770px;
+    }
+
+    .sidebar-module__content{
+      display: flex;
+      flex-direction: column;
+    }
   }

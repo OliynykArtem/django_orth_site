@@ -75,6 +75,23 @@ class ParishImage(models.Model):
         verbose_name_plural = "Фото парафій"
 
 
+class Calendar(models.Model):
+    date = models.DateField(verbose_name="Дата", auto_now=False, auto_now_add=False)
+    saints = models.TextField(verbose_name="Пам'ять яких святих")
+    day_parable = models.TextField(verbose_name="Притча дня")
+
+    class Meta:
+        verbose_name = "Календарний день"
+        verbose_name_plural = "Календарні дні"
+
+
+class Photogallery(models.Model):
+    image = models.ImageField(verbose_name="Фото", upload_to="media/", height_field=None, width_field=None, max_length=None)
+
+    class Meta:
+        verbose_name = "Фото"
+        verbose_name_plural = "Фотогалерея"
+
 
 class Bishop(models.Model):
     name = models.CharField(verbose_name="Ім'я", max_length=255)

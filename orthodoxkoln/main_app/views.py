@@ -21,6 +21,12 @@ console_handler.setFormatter(formatter)
 logger.addHandler(console_handler)
 
 
+all_calendar_day = Calendar.objects.all()
+logger.debug(all_calendar_day)
+
+def base(request):
+    return render(request,'main/base.html', {'all_calendar_day': all_calendar_day})
+
 
 all_publication = Publication.objects.all()
 
@@ -79,7 +85,8 @@ def clergyman(request, clergymanid):
     
 
 def photogallery(request):
-    return render(request, 'main_app/photogallery.html')
+    images_from_db = Photogallery.objects.all()
+    return render(request, 'main_app/photogallery.html', {'images_from_db': images_from_db})
 
 
 def contacts(request):

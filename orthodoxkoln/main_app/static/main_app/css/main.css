@@ -20,9 +20,16 @@ main {
     color: #fff;
     text-align: center;
     background-color: #11abff;
-    border-radius: 5px;
     font-family: 'Ariel', sans-serif;
     font-size: 24px;
+  }
+
+  .news__title{
+    border-radius: 5px;
+  }
+
+  .sidebar-module__title{
+    border-radius: 5px 5px 0 0;
   }
   
   .news__title {
@@ -112,4 +119,41 @@ main {
     background-color: #11abff;
     padding: 10px;
     border-radius: 5px;
+  }
+
+  @media screen and (max-width: 1260px) {
+    .news{
+      width: 680px;
+    }
+    .news__title {
+      width: 680px;
+    }
+  }
+
+  @media screen and (max-width: 1180px) {
+    .news{
+      width: 600px;
+    }
+    .news__title {
+      width: 600px;
+    }
+  }
+
+  @media screen and (max-width: 1100px) {
+    .news{
+      width: 770px;
+    }
+    .news__title {
+      width: 770px;
+    }
+
+    .sidebar-module__content {
+      display: flex;
+      align-items: center;
+    }
+
+    .sidebar-module__content a img {
+      width: 400px;
+      height: auto;
+    }
   }
