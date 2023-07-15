@@ -149,10 +149,12 @@ main {
 
     .sidebar-module__content {
       display: flex;
-      align-items: center;
+      flex-direction: column;
+      justify-content: center;
     }
 
     .sidebar-module__content a img {
+      margin-left: 172px;
       width: 400px;
       height: auto;
     }

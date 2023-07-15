@@ -21,14 +21,21 @@ console_handler.setFormatter(formatter)
 logger.addHandler(console_handler)
 
 
-all_calendar_day = Calendar.objects.all()
-logger.debug(all_calendar_day)
 
-def base(request):
-    return render(request,'main/base.html', {'all_calendar_day': all_calendar_day})
+
+# def base(request):
+#     all_calendar_day = Calendar.objects.all()
+#     for calendar_day in all_calendar_day:
+#         # logger.debug(calendar_day.date)
+#         if (current_date == calendar_day.date):
+#             current_calendar_day = calendar_day
+
+#     return render(request,'main/base.html', {'all_calendar_day': all_calendar_day})
 
 
 all_publication = Publication.objects.all()
+all_calendar_day = Calendar.objects.all()
+
 
 def main(request):
     paginator = Paginator(all_publication, 5)
