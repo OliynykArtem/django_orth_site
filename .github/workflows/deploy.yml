@@ -1,0 +1,52 @@
+name: Django CI
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+    
+jobs:
+  Deploy:
+    runs-on: ubuntu-latest
+    strategy:
+      max-parallel: 4
+      matrix:
+        python-version: [3.7, 3.8, 3.9]
+    steps:
+      - name: Create variables
+        id: vars
+        run: |
+          BRANCH=$(echo ${GITHUB_REF##*/} | tr a-z A-Z)
+          echo "::set-output name=PATH_PROJECT::PATH_PROJECT_$BRANCH"
+          echo "::set-output name=SSH_HOST::SSH_HOST_$BRANCH"
+          echo "::set-output name=SSH_PASSWORD::SSH_PASSWORD_$BRANCH"
+          echo "::set-output name=SSH_USERNAME::SSH_USERNAME_$BRANCH"
+          echo "::set-output name=BRANCH::$BRANCH"
+      - name: Checkout
+      - uses: actions/checkout@v3
+      - name: Deployment
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets[steps.vars.outputs.SSH_HOST] }}
+          password: ${{ secrets[steps.vars.outputs.SSH_PASSWORD] }}
+          username: ${{ secrets[steps.vars.outputs.SSH_USERNAME] }}
+          script: |
+            cd ${{ secrets[steps.vars.outputs.PATH_PROJECT] }}
+            git reset --hard
+            git pul
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v3
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install Dependencies
+        with:
+          host: ${{ secrets[steps.vars.outputs.SSH_HOST] }}
+          password: ${{ secrets[steps.vars.outputs.SSH_PASSWORD] }}
+          username: ${{ secrets[steps.vars.outputs.SSH_USERNAME] }}
+          script: |
+            cd ${{ secrets[steps.vars.outputs.PATH_PROJECT] }}
+          run: |
+            python -m pip install --upgrade pip
+            pip install -r requirements.txt
+            
