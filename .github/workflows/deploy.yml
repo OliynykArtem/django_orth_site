@@ -22,6 +22,7 @@ jobs:
           echo "::set-output name=SSH_HOST::SSH_HOST_$BRANCH"
           echo "::set-output name=SSH_PASSWORD::SSH_PASSWORD_$BRANCH"
           echo "::set-output name=SSH_USERNAME::SSH_USERNAME_$BRANCH"
+          echo "::set-output name=SSH_PORT::SSH_PORT_$BRANCH"
           echo "::set-output name=BRANCH::$BRANCH"
       - name: Checkout
       - uses: actions/checkout@v3
@@ -29,6 +30,7 @@ jobs:
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets[steps.vars.outputs.SSH_HOST] }}
+          port: ${{ secrets[steps.vars.outputs.SSH_PORT] }}
           password: ${{ secrets[steps.vars.outputs.SSH_PASSWORD] }}
           username: ${{ secrets[steps.vars.outputs.SSH_USERNAME] }}
           script: |
@@ -42,6 +44,7 @@ jobs:
       - name: Install Dependencies
         with:
           host: ${{ secrets[steps.vars.outputs.SSH_HOST] }}
+          port: ${{ secrets[steps.vars.outputs.SSH_PORT] }}
           password: ${{ secrets[steps.vars.outputs.SSH_PASSWORD] }}
           username: ${{ secrets[steps.vars.outputs.SSH_USERNAME] }}
           script: |
