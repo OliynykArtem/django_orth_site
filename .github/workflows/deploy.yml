@@ -40,14 +40,24 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
       - name: Install Dependencies
-        run: python -m pip install --upgrade pip
+        run: |
+          cd ${{ secrets[steps.vars.outputs.PATH_PROJECT] }}
+          python -m pip install --upgrade pip
       - name: Install requirements
-        run: pip install -r requirements.txt
+        run: |
+          cd ${{ secrets[steps.vars.outputs.PATH_PROJECT] }}
+          pip install -r requirements.txt
       - name: Install virtual env
-        run: pip install virtualenv
+        run: |
+          cd ${{ secrets[steps.vars.outputs.PATH_PROJECT] }}
+          pip install virtualenv
       - name: enable virtual env
-        run: python -m venv env
+        run: |
+          cd ${{ secrets[steps.vars.outputs.PATH_PROJECT] }}
+          python -m venv env
       - name: Runserver
         env:
           DJANGO_SETTINGS_MODULE: orthodoxkoln.settings
-        run: python orthodoxkoln/manage.py runserver
+        run: |
+          cd ${{ secrets[steps.vars.outputs.PATH_PROJECT] }}
+          python orthodoxkoln/manage.py runserver
