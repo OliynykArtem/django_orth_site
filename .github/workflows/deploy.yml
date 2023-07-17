@@ -39,20 +39,14 @@ jobs:
         uses: actions/setup-python@v3
         with:
           python-version: ${{ matrix.python-version }}
-          script: echo hello world > hello.txt
       - name: Install Dependencies
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets[steps.vars.outputs.SSH_HOST] }}
-          port: ${{ secrets[steps.vars.outputs.SSH_PORT] }}
-          password: ${{ secrets[steps.vars.outputs.SSH_PASSWORD] }}
-          username: ${{ secrets[steps.vars.outputs.SSH_USERNAME] }}
-          script: |
-            cd ${{ secrets[steps.vars.outputs.PATH_PROJECT] }}/orthodoxkoln
-            python -m pip install --upgrade pip
-            pip install -r requirements.txt
-            pip install virtualenv
-            python3 -m venv env
+        run: python -m pip install --upgrade pip
+      - name: Install requirements
+        run: pip install -r requirements.txt
+      - name: Install virtual env
+        run: pip install virtualenv
+      - name: enable virtual env
+        run: python -m venv env
       - name: Runserver
         env:
           DJANGO_SETTINGS_MODULE: orthodoxkoln.settings
