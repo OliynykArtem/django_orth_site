@@ -41,6 +41,7 @@ jobs:
           python-version: ${{ matrix.python-version }}
           script: echo hello world > hello.txt
       - name: Install Dependencies
+        uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets[steps.vars.outputs.SSH_HOST] }}
           port: ${{ secrets[steps.vars.outputs.SSH_PORT] }}
