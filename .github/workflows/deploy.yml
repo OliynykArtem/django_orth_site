@@ -55,4 +55,4 @@ jobs:
       - name: Runserver
         env:
           DJANGO_SETTINGS_MODULE: orthodoxkoln.settings
-        run: python manage.py runserver
+        run: python orthodoxkoln/manage.py runserver
