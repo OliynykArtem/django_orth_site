@@ -50,3 +50,4 @@ jobs:
             source virtualenv/repositories/my_repo/orthodoxkoln/3.9/bin/activate && cd ${{ secrets[steps.vars.outputs.PATH_PROJECT] }}/django_orth_site/orthodoxkoln
             python -m pip install --upgrade pip
             pip install -r requirements.txt
+            python manage.py collectstatic
