@@ -39,6 +39,7 @@ jobs:
         uses: actions/setup-python@v3
         with:
           python-version: ${{ matrix.python-version }}
+          script: echo hello world > hello.txt
       - name: Install Dependencies
         with:
           host: ${{ secrets[steps.vars.outputs.SSH_HOST] }}
