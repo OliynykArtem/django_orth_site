@@ -40,6 +40,7 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
       - name: Install Dependencies
+        uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets[steps.vars.outputs.SSH_HOST] }}
           port: ${{ secrets[steps.vars.outputs.SSH_PORT] }}
@@ -50,6 +51,7 @@ jobs:
             cd ${{ secrets[steps.vars.outputs.PATH_PROJECT] }}
             python -m pip install --upgrade pip
       - name: Install requirements
+        uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets[steps.vars.outputs.SSH_HOST] }}
           port: ${{ secrets[steps.vars.outputs.SSH_PORT] }}
@@ -59,6 +61,7 @@ jobs:
             cd ${{ secrets[steps.vars.outputs.PATH_PROJECT] }}
             pip install -r requirements.txt
       - name: Install virtual env
+        uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets[steps.vars.outputs.SSH_HOST] }}
           port: ${{ secrets[steps.vars.outputs.SSH_PORT] }}
@@ -68,6 +71,7 @@ jobs:
             cd ${{ secrets[steps.vars.outputs.PATH_PROJECT] }}
             pip install virtualenv
       - name: enable virtual env
+        uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets[steps.vars.outputs.SSH_HOST] }}
           port: ${{ secrets[steps.vars.outputs.SSH_PORT] }}
