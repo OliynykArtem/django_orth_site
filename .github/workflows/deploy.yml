@@ -40,22 +40,42 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
       - name: Install Dependencies
-        run: |
-          ls
-          cd ${{ secrets[steps.vars.outputs.PATH_PROJECT] }}
-          python -m pip install --upgrade pip
+        with:
+          host: ${{ secrets[steps.vars.outputs.SSH_HOST] }}
+          port: ${{ secrets[steps.vars.outputs.SSH_PORT] }}
+          password: ${{ secrets[steps.vars.outputs.SSH_PASSWORD] }}
+          username: ${{ secrets[steps.vars.outputs.SSH_USERNAME] }}
+          script: |
+            ls
+            cd ${{ secrets[steps.vars.outputs.PATH_PROJECT] }}
+            python -m pip install --upgrade pip
       - name: Install requirements
-        run: |
-          cd ${{ secrets[steps.vars.outputs.PATH_PROJECT] }}
-          pip install -r requirements.txt
+        with:
+          host: ${{ secrets[steps.vars.outputs.SSH_HOST] }}
+          port: ${{ secrets[steps.vars.outputs.SSH_PORT] }}
+          password: ${{ secrets[steps.vars.outputs.SSH_PASSWORD] }}
+          username: ${{ secrets[steps.vars.outputs.SSH_USERNAME] }}
+          script: |
+            cd ${{ secrets[steps.vars.outputs.PATH_PROJECT] }}
+            pip install -r requirements.txt
       - name: Install virtual env
-        run: |
-          cd ${{ secrets[steps.vars.outputs.PATH_PROJECT] }}
-          pip install virtualenv
+        with:
+          host: ${{ secrets[steps.vars.outputs.SSH_HOST] }}
+          port: ${{ secrets[steps.vars.outputs.SSH_PORT] }}
+          password: ${{ secrets[steps.vars.outputs.SSH_PASSWORD] }}
+          username: ${{ secrets[steps.vars.outputs.SSH_USERNAME] }}
+          script: |
+            cd ${{ secrets[steps.vars.outputs.PATH_PROJECT] }}
+            pip install virtualenv
       - name: enable virtual env
-        run: |
-          cd ${{ secrets[steps.vars.outputs.PATH_PROJECT] }}
-          python -m venv env
+        with:
+          host: ${{ secrets[steps.vars.outputs.SSH_HOST] }}
+          port: ${{ secrets[steps.vars.outputs.SSH_PORT] }}
+          password: ${{ secrets[steps.vars.outputs.SSH_PASSWORD] }}
+          username: ${{ secrets[steps.vars.outputs.SSH_USERNAME] }}
+          script: |
+            cd ${{ secrets[steps.vars.outputs.PATH_PROJECT] }}
+            python -m venv env
       - name: Runserver
         env:
           DJANGO_SETTINGS_MODULE: orthodoxkoln.settings
