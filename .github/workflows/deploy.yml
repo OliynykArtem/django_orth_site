@@ -50,6 +50,7 @@ jobs:
             source virtualenv/repositories/my_repo/orthodoxkoln/3.9/bin/activate && cd ${{ secrets[steps.vars.outputs.PATH_PROJECT] }}
             python -m pip install --upgrade pip
             pip install -r requirements.txt
+            ls
       - name: Runserver
         uses: appleboy/ssh-action@master
         env:
@@ -60,5 +61,6 @@ jobs:
           password: ${{ secrets[steps.vars.outputs.SSH_PASSWORD] }}
           username: ${{ secrets[steps.vars.outputs.SSH_USERNAME] }}
           script: |
-            source virtualenv/repositories/my_repo/orthodoxkoln/3.9/bin/activate && cd ${{ secrets[steps.vars.outputs.PATH_PROJECT] }}
+            source virtualenv/repositories/my_repo/orthodoxkoln/3.9/bin/activate && cd ${{ secrets[steps.vars.outputs.PATH_PROJECT] }}/django_orth_site/orthodoxkoln
+            ls
             python orthodoxkoln/manage.py runserver
