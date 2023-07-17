@@ -48,8 +48,7 @@ jobs:
           password: ${{ secrets[steps.vars.outputs.SSH_PASSWORD] }}
           username: ${{ secrets[steps.vars.outputs.SSH_USERNAME] }}
           script: |
-            cd ${{ secrets[steps.vars.outputs.PATH_PROJECT] }}
-          run: |
+            cd ${{ secrets[steps.vars.outputs.PATH_PROJECT] }}/orthodoxkoln
             python -m pip install --upgrade pip
             pip install -r requirements.txt
             pip install virtualenv
