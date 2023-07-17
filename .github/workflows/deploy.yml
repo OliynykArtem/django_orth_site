@@ -39,6 +39,15 @@ jobs:
         uses: actions/setup-python@v3
         with:
           python-version: ${{ matrix.python-version }}
+      - name: enable virtual env
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets[steps.vars.outputs.SSH_HOST] }}
+          port: ${{ secrets[steps.vars.outputs.SSH_PORT] }}
+          password: ${{ secrets[steps.vars.outputs.SSH_PASSWORD] }}
+          username: ${{ secrets[steps.vars.outputs.SSH_USERNAME] }}
+          script: |
+            source virtualenv/repositories/my_repo/orthodoxkoln/3.9/bin/activate && cd ${{ secrets[steps.vars.outputs.PATH_PROJECT] }}
       - name: Install Dependencies
         uses: appleboy/ssh-action@master
         with:
@@ -47,8 +56,6 @@ jobs:
           password: ${{ secrets[steps.vars.outputs.SSH_PASSWORD] }}
           username: ${{ secrets[steps.vars.outputs.SSH_USERNAME] }}
           script: |
-            ls
-            cd ${{ secrets[steps.vars.outputs.PATH_PROJECT] }}
             python -m pip install --upgrade pip
       - name: Install requirements
         uses: appleboy/ssh-action@master
@@ -58,28 +65,7 @@ jobs:
           password: ${{ secrets[steps.vars.outputs.SSH_PASSWORD] }}
           username: ${{ secrets[steps.vars.outputs.SSH_USERNAME] }}
           script: |
-            cd ${{ secrets[steps.vars.outputs.PATH_PROJECT] }}
-            pip install -r requirements.txt
-      - name: Install virtual env
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets[steps.vars.outputs.SSH_HOST] }}
-          port: ${{ secrets[steps.vars.outputs.SSH_PORT] }}
-          password: ${{ secrets[steps.vars.outputs.SSH_PASSWORD] }}
-          username: ${{ secrets[steps.vars.outputs.SSH_USERNAME] }}
-          script: |
-            cd ${{ secrets[steps.vars.outputs.PATH_PROJECT] }}
-            pip install virtualenv
-      - name: enable virtual env
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets[steps.vars.outputs.SSH_HOST] }}
-          port: ${{ secrets[steps.vars.outputs.SSH_PORT] }}
-          password: ${{ secrets[steps.vars.outputs.SSH_PASSWORD] }}
-          username: ${{ secrets[steps.vars.outputs.SSH_USERNAME] }}
-          script: |
-            cd ${{ secrets[steps.vars.outputs.PATH_PROJECT] }}
-            python -m venv env
+            pip install -r requirements.txt    
       - name: Runserver
         env:
           DJANGO_SETTINGS_MODULE: orthodoxkoln.settings
