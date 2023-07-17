@@ -53,6 +53,11 @@ jobs:
       - name: Runserver
         env:
           DJANGO_SETTINGS_MODULE: orthodoxkoln.settings
-        run: |
-          cd ${{ secrets[steps.vars.outputs.PATH_PROJECT] }}
-          python orthodoxkoln/manage.py runserver
+        with:
+          host: ${{ secrets[steps.vars.outputs.SSH_HOST] }}
+          port: ${{ secrets[steps.vars.outputs.SSH_PORT] }}
+          password: ${{ secrets[steps.vars.outputs.SSH_PASSWORD] }}
+          username: ${{ secrets[steps.vars.outputs.SSH_USERNAME] }}
+          script: |
+            source virtualenv/repositories/my_repo/orthodoxkoln/3.9/bin/activate && cd ${{ secrets[steps.vars.outputs.PATH_PROJECT] }}
+            python orthodoxkoln/manage.py runserver
